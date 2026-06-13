@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-violet: #8B5CF6;
+  --color-brand-purple: #A78BFA;
+  --color-brand-teal: #0D9488;
+  --color-brand-cyan: #06B6D4;
+  --color-brand-dark: #080A10;
+  --color-brand-card: #0E121E;
+  --color-brand-gray: #1E293B;
+  
+  --font-sans: var(--font-sans), sans-serif;
+  --font-display: var(--font-jakarta), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+/* Custom background animations & aesthetics */
+@layer utilities {
+  .bg-grid-ambient {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0),
+      radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+    background-size: 40px 40px, 100% 100%, 100% 100%;
+  }
+
+  .glow-purple {
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.35));
+  }
+  
+  .glow-cyan {
+    filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.35));
+  }
+}
+
+/* Hide standard scrollbars for seamless appearance but allow scroll */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080A10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
