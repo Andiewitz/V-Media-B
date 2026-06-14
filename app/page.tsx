@@ -106,99 +106,52 @@ export default function Home() {
           </motion.div>
         </main>
 
-        {/* --- WISPR FLOW SYSTEM DECORATIVE INTERACTIVE GRAPHICS --- */}
-        
-        {/* Left Circular Scrolling/Rotating Text Ring */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 55 }}
-          className="absolute left-[-110px] sm:left-[-90px] md:left-[-70px] bottom-[16%] md:bottom-[20%] z-20 pointer-events-none select-none opacity-40 hover:opacity-100 transition-opacity duration-300"
-        >
-          <svg width="280" height="280" viewBox="0 0 280 280" className="overflow-visible">
+        {/* --- WISPR FLOW SYSTEM COMBINED CONTINUOUS RIBBON --- */}
+        <div className="absolute bottom-[-10px] left-0 w-full overflow-visible pointer-events-none z-10 select-none">
+          <svg viewBox="0 0 1440 380" className="w-full h-auto overflow-visible select-none" preserveAspectRatio="none">
             <defs>
+              {/* 
+                This path is one continuous loop-then-wave curve!
+                It starts near the left margin, loops around in a clockwise circle of 180px diameter, 
+                then sweeps down-right and glides along the bottom-right as a wavy ribbon.
+              */}
               <path
-                id="circle-text-path"
-                d="M 140, 140 m -100, 0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0"
+                id="continuous-flow-path"
+                d="M 160,90 C 250,90 250,270 160,270 C 70,270 70,90 160,90 C 230,90 260,180 290,220 C 330,260 410,280 510,260 C 710,220 910,180 1110,210 C 1260,230 1360,190 1600,230"
+              />
+              
+              {/* 
+                The separate stroke path matches the second part of the curve 
+                exactly (starting near x=235 where the circle exits toward the ribbon).
+              */}
+              <path
+                id="ribbon-solid-bg"
+                d="M 235,145 C 260,180 290,220 330,260 C 410,280 510,260 C 710,220 910,180 1110,210 C 1260,230 1360,190 1600,230"
               />
             </defs>
-            <text className="font-sans font-medium tracking-widest text-[10px] md:text-[11px] uppercase fill-neutral-800">
-              <textPath href="#circle-text-path" startOffset="0%">
-                {"There's been a lot of back and honestly the whole thing's been kind of chaotic, like nobody going to slip. •"}
-              </textPath>
-            </text>
-          </svg>
-        </motion.div>
 
-        {/* Bottom Left Pastel Fingerprint Button */}
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
-          className="absolute left-6 bottom-6 md:left-8 md:bottom-8 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#E8DDF3] border-2 border-neutral-900 text-neutral-900 flex items-center justify-center shadow-lg transition-transform hover:bg-[#DED0EC]"
-        >
-          <svg className="w-6 h-6 stroke-current text-neutral-900" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2a10 10 0 0 0-10 10" />
-            <path d="M12 2a10 10 0 0 1 10 10" />
-            <path d="M12 6a6 6 0 0 0-6 6" />
-            <path d="M12 6a6 6 0 0 1 6 6" />
-            <path d="M12 10a2 2 0 0 0-2 2" />
-            <path d="M12 10a2 2 0 0 1 2 2" />
-            <path d="M12 14v4" />
-            <path d="M8 14v4" />
-            <path d="M16 14v4" />
-          </svg>
-        </motion.button>
-
-        {/* Bottom Center Waveform Pill & Labeled Trigger ("waiting") */}
-        <div className="absolute bottom-[30px] sm:bottom-[40px] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5">
-          <span className="text-[10px] font-mono font-medium tracking-wider text-neutral-400 select-none uppercase">
-            waiting
-          </span>
-          <div className="flex items-center justify-center gap-1 px-7 py-3 bg-[#FCFAF6] border-2 border-neutral-900 rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.06)] h-12 sm:h-14 w-36 sm:w-44">
-            {[...Array(14)].map((_, i) => {
-              const baseHeights = [10, 22, 16, 26, 12, 18, 28, 24, 14, 20, 10, 16, 12, 8];
-              const height = baseHeights[i] || 14;
-              return (
-                <motion.span
-                  key={i}
-                  className="w-[3px] bg-neutral-900 rounded-full"
-                  animate={{
-                    height: [height - 4, height + 8, height - 4]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 0.75 + (i % 3) * 0.15,
-                    ease: "easeInOut"
-                  }}
-                  style={{ height: `${height}px` }}
-                />
-              );
-            })}
-          </div>
-        </div>
-
-        {/* BOTTOM RIGHT: Fully Curved/Bent scrolling transcript ribbon banner that curves dynamically to the right edge */}
-        <div className="absolute bottom-[-10px] left-0 w-full overflow-visible pointer-events-none z-10">
-          <svg viewBox="0 0 1440 200" className="w-full h-auto overflow-visible select-none" preserveAspectRatio="none">
-            <defs>
-              {/* Perfectly curved path flowing from left/center under the capsule and surging high up on the right */}
-              <path
-                id="ribbon-curve-path"
-                d="M 300,165 C 500,210 750,210 1000,140 C 1200,85 1350,75 1600,110"
-              />
-            </defs>
-            {/* Dark background curved stroke layer */}
+            {/* Dark background curved ribbon stroke for the second segment */}
             <path
-              d="M 300,165 C 500,210 750,210 1000,140 C 1200,85 1350,75 1600,110"
+              d="M 235,145 C 260,180 290,220 330,260 C 410,280 510,260 C 710,220 910,180 1110,210 C 1260,230 1360,190 1600,230"
               fill="none"
               stroke="#121212"
-              strokeWidth="64"
+              strokeWidth="60"
               strokeLinecap="round"
             />
-            {/* White transcription text actual textPath bending! */}
-            <text className="font-sans font-bold tracking-tight text-[15px] sm:text-[16px]" fill="#FFFFFF" dy="5">
-              <textPath href="#ribbon-curve-path" startOffset="0%">
-                {"meeting notes from yesterday's live session were compiled... summarizing all deliverables, tracking action items, and ensuring nothing is forgotten... or if they're still waiting? // can you draft follow-up templates? // yes, the voice notes have been processed successfully! // notes from yesterday's meeting were sent out, or if they're still waiting?"}
-                <animate attributeName="startOffset" from="0%" to="-40%" dur="22s" repeatCount="indefinite" />
+
+             {/* Single continuous scrolling text traversing the entire connected path! */}
+            <text className="font-sans font-extrabold tracking-tight text-[15px] sm:text-[16px]" dy="5">
+              <textPath href="#continuous-flow-path" startOffset="0%">
+                <tspan fill="#737373" fontSize="11px" fontWeight="600" letterSpacing="1px">
+                  {"V-MEDIA DIGITAL MARKETING SOLUTIONS • SCALE HIGHER • GROW STRONGER • "}
+                </tspan>
+                <tspan fill="#737373" fontSize="11px" fontWeight="600" letterSpacing="1px">
+                  {"tactical digital activation and hyper-clean layouts engineered to convert... "}
+                </tspan>
+                <tspan fill="#FFFFFF" fontSize="14px" fontWeight="800">
+                  {" // high-converting landing pages tailored with absolute Next.js precision // Meta, Google & YouTube campaign setup with target demographic mapping // automated direct-response email sequences that enrich loyalty // platforms custom-engineered to convert search acquisitions // sculpting velocity for high-growth brands // live visual asset delivery and UI/UX friction-free layout states //"}
+                </tspan>
+                <animate attributeName="startOffset" from="0%" to="-40%" dur="26s" repeatCount="indefinite" />
               </textPath>
             </text>
           </svg>

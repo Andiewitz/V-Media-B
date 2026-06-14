@@ -40,7 +40,7 @@ const Navbar1 = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {["Home", "Pricing", "Docs", "Projects"].map((item) => (
+          {["Home", "Services", "Projects", "Contact"].map((item) => (
             <motion.div
               key={item}
               initial={{ opacity: 0, y: -10 }}
@@ -48,7 +48,7 @@ const Navbar1 = () => {
               transition={{ duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
             >
-              <a href="#" className="text-sm font-semibold text-neutral-600 hover:text-neutral-950 transition-colors tracking-tight">
+              <a href={item === "Services" ? "#our-services" : "#"} className="text-sm font-semibold text-neutral-600 hover:text-neutral-950 transition-colors tracking-tight">
                 {item}
               </a>
             </motion.div>
@@ -65,7 +65,7 @@ const Navbar1 = () => {
           whileTap={{ scale: 0.98 }}
         >
           <a
-            href="#"
+            href="#our-services"
             className="inline-flex items-center justify-center px-5 py-2 text-xs font-bold text-white bg-neutral-950 hover:bg-neutral-800 rounded-full transition-colors shadow-xs"
           >
             Get Started
@@ -99,7 +99,7 @@ const Navbar1 = () => {
               <X className="h-6 w-6 text-gray-900" />
             </motion.button>
             <div className="flex flex-col space-y-6">
-              {["Home", "Pricing", "Docs", "Projects"].map((item, i) => (
+              {["Home", "Services", "Projects", "Contact"].map((item, i) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, x: 20 }}
@@ -107,7 +107,7 @@ const Navbar1 = () => {
                   transition={{ delay: i * 0.1 + 0.1 }}
                   exit={{ opacity: 0, x: 20 }}
                 >
-                  <a href="#" className="text-base text-gray-900 font-medium" onClick={toggleMenu}>
+                  <a href={item === "Services" ? "#our-services" : "#"} className="text-base text-gray-900 font-medium" onClick={toggleMenu}>
                     {item}
                   </a>
                 </motion.div>
@@ -121,7 +121,7 @@ const Navbar1 = () => {
                 className="pt-6"
               >
                 <a
-                  href="#"
+                  href="#our-services"
                   className="inline-flex items-center justify-center w-full px-5 py-3 text-base text-white bg-neutral-950 rounded-full font-bold"
                   onClick={toggleMenu}
                 >
