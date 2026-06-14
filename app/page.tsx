@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, ShieldCheck, ChevronDown, Megaphone } from 'lucide-react';
+import { ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react';
 import { Navbar1 } from '@/components/ui/navbar-1';
+import { SparksCarousel } from '@/components/ui/sparks-carousel';
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -59,7 +60,7 @@ export default function Home() {
         </header>
 
         {/* HERO MAIN CONTENT */}
-        <main className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto w-full pt-16 pb-12 my-auto">
+        <main className="relative z-10 flex-1 flex flex-col items-start justify-center text-left px-6 md:px-12 max-w-6xl mx-auto w-full pt-16 pb-12 my-auto">
           {/* Large Bold Display Heading */}
           <div className="space-y-6">
             <motion.h1
@@ -79,7 +80,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-neutral-500 max-w-2xl mx-auto leading-relaxed font-sans"
+              className="text-base sm:text-lg md:text-xl text-neutral-500 max-w-2xl leading-relaxed font-sans"
             >
               Tactical digital activation. Inspired by the brand DNA parameters of{" "}
               <code className="bg-neutral-100 text-[#8B5CF6] px-1.5 py-0.5 rounded text-xs select-all font-mono border border-neutral-200">
@@ -94,7 +95,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full justify-center"
+            className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full justify-start"
           >
             <a
               href="#our-services"
@@ -111,49 +112,59 @@ export default function Home() {
           <svg viewBox="0 0 1440 380" className="w-full h-auto overflow-visible select-none" preserveAspectRatio="none">
             <defs>
               {/* 
-                This path is one continuous loop-then-wave curve!
-                It starts near the left margin, loops around in a clockwise circle of 180px diameter, 
-                then sweeps down-right and glides along the bottom-right as a wavy ribbon.
+                Organic loop path derived from Wispr Flow bezier mathematics.
+                4 cubic bezier segments form a natural crossing loop (NOT geometric circles).
+                Segment 1: Entry sweep from top-left down to center-left
+                Segment 2: Curves up-right forming the upper arc of the loop
+                Segment 3: Crosses back left-down through the loop body (the key crossing)
+                Segments 4-5: Extended ribbon sweeping to the right edge
               */}
               <path
                 id="continuous-flow-path"
-                d="M 160,90 C 250,90 250,270 160,270 C 70,270 70,90 160,90 C 230,90 260,180 290,220 C 330,260 410,280 510,260 C 710,220 910,180 1110,210 C 1260,230 1360,190 1600,230"
+                d="M -200,12 C -187,78 -129,186 5,230 C 117,262 220,187 160,108 C 101,29 -28,178 160,293 C 197,319 400,345 650,330 C 850,315 1100,290 1420,310"
               />
               
               {/* 
-                The separate stroke path matches the second part of the curve 
-                exactly (starting near x=235 where the circle exits toward the ribbon).
+                Ribbon stroke path — starts well past the loop crossing exit.
+                Computed by splitting the first ribbon bezier at t≈0.2 
+                and using the right sub-curve.
               */}
               <path
                 id="ribbon-solid-bg"
-                d="M 235,145 C 260,180 290,220 330,260 C 410,280 510,260 C 710,220 910,180 1110,210 C 1260,230 1360,190 1600,230"
+                d="M 201,308 C 280,328 450,342 650,330 C 850,315 1100,290 1420,310"
               />
+
+              <mask id="ribbon-text-mask">
+                <rect x="-400" y="-100" width="2000" height="600" fill="black" />
+                <use href="#ribbon-solid-bg" fill="none" stroke="white" strokeWidth="80" strokeLinecap="round" />
+              </mask>
+
+              <text id="scrolling-text" className="font-sans font-extrabold tracking-tight" dy="5">
+                <textPath href="#continuous-flow-path" startOffset="0%">
+                  <tspan fontSize="11px" fontWeight="600" letterSpacing="1px">
+                    {"V-MEDIA DIGITAL MARKETING SOLUTIONS • SCALE HIGHER • GROW STRONGER • "}
+                  </tspan>
+                  <tspan fontSize="11px" fontWeight="600" letterSpacing="1px">
+                    {"tactical digital activation and hyper-clean layouts engineered to convert... "}
+                  </tspan>
+                  <tspan fontSize="14px" fontWeight="800">
+                    {" // high-converting landing pages tailored with absolute Next.js precision // Meta, Google & YouTube campaign setup with target demographic mapping // automated direct-response email sequences that enrich loyalty // platforms custom-engineered to convert search acquisitions // sculpting velocity for high-growth brands // live visual asset delivery and UI/UX friction-free layout states //"}
+                  </tspan>
+                  <animate attributeName="startOffset" from="-40%" to="0%" dur="26s" repeatCount="indefinite" />
+                </textPath>
+              </text>
             </defs>
 
-            {/* Dark background curved ribbon stroke for the second segment */}
-            <path
-              d="M 235,145 C 260,180 290,220 330,260 C 410,280 510,260 C 710,220 910,180 1110,210 C 1260,230 1360,190 1600,230"
-              fill="none"
-              stroke="#121212"
-              strokeWidth="60"
-              strokeLinecap="round"
-            />
+            {/* 1. Underneath: Grey text layer scrolling along the entire path */}
+            <use href="#scrolling-text" fill="#737373" />
 
-             {/* Single continuous scrolling text traversing the entire connected path! */}
-            <text className="font-sans font-extrabold tracking-tight text-[15px] sm:text-[16px]" dy="5">
-              <textPath href="#continuous-flow-path" startOffset="0%">
-                <tspan fill="#737373" fontSize="11px" fontWeight="600" letterSpacing="1px">
-                  {"V-MEDIA DIGITAL MARKETING SOLUTIONS • SCALE HIGHER • GROW STRONGER • "}
-                </tspan>
-                <tspan fill="#737373" fontSize="11px" fontWeight="600" letterSpacing="1px">
-                  {"tactical digital activation and hyper-clean layouts engineered to convert... "}
-                </tspan>
-                <tspan fill="#FFFFFF" fontSize="14px" fontWeight="800">
-                  {" // high-converting landing pages tailored with absolute Next.js precision // Meta, Google & YouTube campaign setup with target demographic mapping // automated direct-response email sequences that enrich loyalty // platforms custom-engineered to convert search acquisitions // sculpting velocity for high-growth brands // live visual asset delivery and UI/UX friction-free layout states //"}
-                </tspan>
-                <animate attributeName="startOffset" from="0%" to="-40%" dur="26s" repeatCount="indefinite" />
-              </textPath>
-            </text>
+            {/* 2. Middle: Dark background curved ribbon stroke */}
+            <use href="#ribbon-solid-bg" fill="none" stroke="#121212" strokeWidth="60" strokeLinecap="round" />
+
+            {/* 3. Top: White text layer scrolling along the entire path, masked to the ribbon */}
+            <g mask="url(#ribbon-text-mask)">
+              <use href="#scrolling-text" fill="#FFFFFF" />
+            </g>
           </svg>
         </div>
 
@@ -162,7 +173,7 @@ export default function Home() {
       {/* 2. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE */}
       <section 
         id="our-services"
-        className="relative bg-[#2D2D2D] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] pt-24 pb-32 px-6 md:px-12 w-full z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.08)]"
+        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] pt-24 pb-32 px-6 md:px-12 w-full z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.08)]"
       >
         <div className="max-w-6xl mx-auto">
           
@@ -275,74 +286,56 @@ export default function Home() {
               })}
             </div>
 
-            {/* Campaign Channels & Live Endpoints */}
-            <div className="pt-20 w-full select-none text-left">
-              <div className="mb-6 flex items-center gap-3 pl-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest font-semibold">
-                  Campaign Channels & Live Endpoints
-                </span>
-              </div>
-              
-              {/* Clean minimal lists aligned on the left, with no backgrounds or cards, as requested */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pl-2 mt-4 max-w-4xl">
-                {[
+            {/* Campaign Channels — Sparks Carousel */}
+            <div className="pt-20 w-full">
+              <SparksCarousel
+                title="Campaign Channels"
+                subtitle="Platforms & tools we deploy across every service."
+                items={[
                   {
-                    name: "Facebook Ads",
-                    desc: "Audience targeting & reach integration",
-                    logo: (
-                      <svg className="w-5 h-5 text-[#1877F2] shrink-0 fill-current" viewBox="0 0 24 24">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                      </svg>
-                    )
+                    id: "social-media",
+                    imageSrc: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80",
+                    title: "Social Media Marketing — Facebook, Instagram & TikTok campaigns",
+                    count: 4,
+                    countLabel: "Active Channels",
                   },
                   {
-                    name: "Instagram Campaigns",
-                    desc: "Organic & paid visual media loops",
-                    logo: (
-                      <svg className="w-5 h-5 text-pink-500 shrink-0 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                      </svg>
-                    )
+                    id: "web-dev",
+                    imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
+                    title: "Website Development — Next.js, React & WordPress engineering",
+                    count: 3,
+                    countLabel: "Frameworks",
                   },
                   {
-                    name: "Google Search SEM",
-                    desc: "Direct-intent search campaigns",
-                    logo: (
-                      <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none">
-                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05"/>
-                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                      </svg>
-                    )
+                    id: "email",
+                    imageSrc: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&auto=format&fit=crop&q=80",
+                    title: "Email Marketing — Automated flows via Mailchimp & Klaviyo",
+                    count: 2,
+                    countLabel: "Platforms",
                   },
                   {
-                    name: "YouTube Ads",
-                    desc: "High-yield video distributions",
-                    logo: (
-                      <svg className="w-5 h-5 text-[#FF0000] shrink-0 fill-current" viewBox="0 0 24 24">
-                        <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.108C19.52 3.5 12 3.5 12 3.5s-7.52 0-9.388.555A3.002 3.002 0 00.5 6.163C0 8.038 0 12 0 12s0 3.962.5 5.837a3.003 3.003 0 002.11 2.108C4.48 20.5 12 20.5 12 20.5s7.52 0 9.388-.555a3.003 3.003 0 002.11-2.108C24 15.962 24 12 24 12s0-3.962-.5-5.837z" />
-                        <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="white" />
-                      </svg>
-                    )
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-start gap-1 group">
-                    <div className="flex items-center gap-2">
-                      <div className="p-0.5 group-hover:scale-110 transition-transform duration-200">
-                        {item.logo}
-                      </div>
-                      <span className="text-white font-sans font-bold text-sm sm:text-base tracking-tight select-none">
-                        {item.name}
-                      </span>
-                    </div>
-                    <span className="text-xs text-neutral-400 leading-relaxed font-sans">{item.desc}</span>
-                  </div>
-                ))}
-              </div>
+                    id: "content",
+                    imageSrc: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&auto=format&fit=crop&q=80",
+                    title: "Content Creation — YouTube, Canva & Adobe CC production",
+                    count: 5,
+                    countLabel: "Asset Types",
+                  },
+                  {
+                    id: "ui-ux",
+                    imageSrc: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&auto=format&fit=crop&q=80",
+                    title: "UI/UX Design — Figma, Framer & Storybook prototyping",
+                    count: 4,
+                    countLabel: "Design Tools",
+                  },
+                  {
+                    id: "google-ads",
+                    imageSrc: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop&q=80",
+                    title: "Google Search SEM — Direct-intent paid acquisition campaigns",
+                    count: 3,
+                    countLabel: "Campaign Types",
+                  },
+                ]}
+              />
             </div>
 
           </div>

@@ -11,8 +11,8 @@ const Navbar1 = () => {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4 backdrop-blur-xs select-none">
-      <div className="flex items-center justify-between px-6 py-2 bg-white/95 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200/50 w-full max-w-4xl relative z-10">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4 select-none">
+      <div className="flex items-center justify-between px-6 py-2 bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#C5C5C5] w-full max-w-4xl relative z-10">
         
         {/* V-Media Brand Logo and Name */}
         <div className="flex items-center">
