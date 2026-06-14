@@ -47,6 +47,103 @@ export default function Home() {
     }
   ];
 
+  const brandLogos = [
+    {
+      name: "Facebook Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          </svg>
+          <span className="text-2xl font-display font-bold tracking-tight">Facebook Ads</span>
+        </div>
+      )
+    },
+    {
+      name: "Instagram Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+          <span className="text-2xl font-display font-bold tracking-tight">Instagram Ads</span>
+        </div>
+      )
+    },
+    {
+      name: "Google Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M16.5 3L6 21h5.5L22 3h-5.5z" />
+            <path d="M6 21l10.5-18H11L.5 21H6z" opacity="0.6" />
+          </svg>
+          <span className="text-2xl font-display font-extrabold tracking-tight">Google Ads</span>
+        </div>
+      )
+    },
+    {
+      name: "TikTok Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M12.53.02C13.84 0 15.14.31 16.29.93c-.09 1.91.55 3.79 1.83 5.25.12.13.26.25.4.37v4.29c-1.39-.12-2.74-.63-3.87-1.48-.48-.36-.92-.78-1.29-1.25v7.7c0 4.14-3.36 7.5-7.5 7.5S1.86 19.95 1.86 15.81s3.36-7.5 7.5-7.5c.3 0 .59.02.88.06V12.7c-.29-.07-.58-.1-.88-.1-1.77 0-3.21 1.44-3.21 3.21s1.44 3.21 3.21 3.21 3.21-1.44 3.21-3.21V0h3.27z" />
+          </svg>
+          <span className="text-2xl font-display font-black tracking-tight">TikTok Ads</span>
+        </div>
+      )
+    },
+    {
+      name: "SEM",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            <line x1="11" y1="8" x2="11" y2="14" />
+            <line x1="8" y1="11" x2="14" y2="11" />
+          </svg>
+          <span className="text-2xl font-display font-bold tracking-widest uppercase">SEM</span>
+        </div>
+      )
+    },
+    {
+      name: "YouTube Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+          <span className="text-2xl font-display font-extrabold tracking-tight">YouTube Ads</span>
+        </div>
+      )
+    },
+    {
+      name: "LinkedIn Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+          </svg>
+          <span className="text-2xl font-display font-bold tracking-tight">LinkedIn Ads</span>
+        </div>
+      )
+    },
+    {
+      name: "Reddit Ads",
+      element: (
+        <div className="flex items-center gap-2.5">
+          <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.23-1.72l1.32-4.14 4.3 1c.04.99.86 1.78 1.85 1.78 1.02 0 1.85-.83 1.85-1.85S19.02 3 18 3c-1.02 0-1.85.83-1.85 1.85L11.5 3.8C11.16 3.7 10.8 3.9 10.7 4.3L9.2 9c-2.42.04-4.67.68-6.33 1.7-.56-.74-1.44-1.2-2.37-1.2-1.65 0-3 1.35-3 3 0 1.12.6 2.1 1.5 2.62-.06.39-.1.78-.1 1.18 0 4.14 4.93 7.5 11 7.5s11-3.36 11-7.5c0-.4-.04-.79-.1-1.18.9-.52 1.5-1.5 1.5-2.62zm-16 2c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 4.3c-1.75 1.75-5.25 1.75-7 0-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0 1.35 1.35 4.25 1.35 5.6 0 .2-.2.5-.2.7 0 .2.2.2.5 0 .7zm-.3-2.3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+          </svg>
+          <span className="text-2xl font-display font-bold tracking-tight">Reddit Ads</span>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="relative min-h-screen bg-[#FDFCF8] text-neutral-900 font-sans selection:bg-neutral-900 selection:text-white overflow-x-hidden scroll-smooth">
       
@@ -170,10 +267,10 @@ export default function Home() {
 
       </div>
 
-      {/* 2. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE */}
+      {/* 2. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE & EXIT */}
       <section 
         id="our-services"
-        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] pt-24 pb-32 px-6 md:px-12 w-full z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.08)]"
+        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-[50px] sm:rounded-b-[80px] md:rounded-b-[100px] pt-24 pb-32 px-6 md:px-12 w-full z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.08)]"
       >
         <div className="max-w-6xl mx-auto">
           
@@ -343,6 +440,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3. BRAND LOGOS SECTION (YELLOW BANNER) */}
+      <section 
+        id="trusted-marquee"
+        className="relative bg-[#FFD200] text-neutral-900 rounded-b-[50px] sm:rounded-b-[80px] md:rounded-b-[100px] mt-[-50px] sm:mt-[-80px] md:mt-[-100px] pt-[90px] sm:pt-[110px] md:pt-[130px] pb-16 px-6 md:px-12 w-full z-10 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.15)] border-2 border-black/15"
+      >
+        <div className="max-w-6xl mx-auto relative flex flex-col items-center justify-center">
+          {/* Heading */}
+          <div className="text-center max-w-3xl px-4 mb-8 relative z-20">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-900 leading-tight">
+              Our Digital Marketing Services
+            </h3>
+          </div>
+        </div>
+
+        {/* Logos Marquee Container */}
+        <div className="w-full overflow-hidden relative z-20 select-none py-4">
+          <div className="flex gap-20 whitespace-nowrap animate-marquee">
+            {brandLogos.map((logo, idx) => (
+              <div key={`logo-1-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
+                {logo.element}
+              </div>
+            ))}
+            {brandLogos.map((logo, idx) => (
+              <div key={`logo-2-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
+                {logo.element}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. SEAMLESS CREAM BACKGROUND TRANSITION SPACER */}
+      <div className="h-32 bg-[#FDFCF8] w-full" />
     </div>
   );
 }
