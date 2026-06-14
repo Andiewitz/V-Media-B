@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 
 const Navbar1 = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,17 +11,19 @@ const Navbar1 = () => {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4 backdrop-blur-xs">
-      <div className="flex items-center justify-between px-6 py-3 bg-white rounded-full shadow-lg border border-neutral-200/80 w-full max-w-3xl relative z-10">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4 backdrop-blur-xs select-none">
+      <div className="flex items-center justify-between px-6 py-2 bg-white/95 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200/50 w-full max-w-4xl relative z-10">
+        
+        {/* V-Media Brand Logo and Name */}
         <div className="flex items-center">
           <motion.div
-            className="w-8 h-8 mr-6"
+            className="w-7 h-7 mr-3"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            whileHover={{ rotate: 10 }}
+            whileHover={{ rotate: 12, scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="16" cy="16" r="16" fill="url(#paint0_linear)" />
               <defs>
                 <linearGradient id="paint0_linear" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
@@ -31,24 +33,27 @@ const Navbar1 = () => {
               </defs>
             </svg>
           </motion.div>
+          <span className="font-sans font-extrabold tracking-tight text-neutral-900 text-base sm:text-lg">
+            V-Media
+          </span>
         </div>
         
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {["Home", "Pricing", "Docs", "Projects"].map((item) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <a href="#" className="text-sm text-gray-900 hover:text-gray-600 transition-colors font-medium">
-                  {item}
-                </a>
-              </motion.div>
-            ))}
-          </nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {["Home", "Pricing", "Docs", "Projects"].map((item) => (
+            <motion.div
+              key={item}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <a href="#" className="text-sm font-semibold text-neutral-600 hover:text-neutral-950 transition-colors tracking-tight">
+                {item}
+              </a>
+            </motion.div>
+          ))}
+        </nav>
 
         {/* Desktop CTA Button */}
         <motion.div
@@ -56,19 +61,20 @@ const Navbar1 = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
         >
           <a
             href="#"
-            className="inline-flex items-center justify-center px-5 py-2 text-sm text-white bg-black rounded-full hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center justify-center px-5 py-2 text-xs font-bold text-white bg-neutral-950 hover:bg-neutral-800 rounded-full transition-colors shadow-xs"
           >
             Get Started
           </a>
         </motion.div>
 
         {/* Mobile Menu Button */}
-        <motion.button className="md:hidden flex items-center" onClick={toggleMenu} whileTap={{ scale: 0.9 }}>
-          <Menu className="h-6 w-6 text-gray-900" />
+        <motion.button className="md:hidden flex items-center p-1" onClick={toggleMenu} whileTap={{ scale: 0.9 }}>
+          <Menu className="h-5 w-5 text-gray-900" />
         </motion.button>
       </div>
 
@@ -116,7 +122,7 @@ const Navbar1 = () => {
               >
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center w-full px-5 py-3 text-base text-white bg-black rounded-full hover:bg-gray-800 transition-colors "
+                  className="inline-flex items-center justify-center w-full px-5 py-3 text-base text-white bg-neutral-950 rounded-full font-bold"
                   onClick={toggleMenu}
                 >
                   Get Started
