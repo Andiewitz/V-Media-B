@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react';
 import { Navbar1 } from '@/components/ui/navbar-1';
 import { CampaignChannelsSection } from '@/components/campaign-channels-section';
@@ -9,6 +9,31 @@ import { TeamSection } from '@/components/team-section';
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  // Scroll stacking & blurring refs
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const teamRef = useRef<HTMLDivElement>(null);
+  const newsletterRef = useRef<HTMLDivElement>(null);
+
+  // 1. Services section blurring as Team section scrolls over it
+  const { scrollYProgress: servicesScrollY } = useScroll({
+    target: teamRef,
+    offset: ["start end", "start start"]
+  });
+
+  const servicesBlur = useTransform(servicesScrollY, [0, 1], ["blur(0px)", "blur(12px)"]);
+  const servicesScale = useTransform(servicesScrollY, [0, 1], [1, 0.95]);
+  const servicesOpacity = useTransform(servicesScrollY, [0, 1], [1, 0.4]);
+
+  // 2. Team section blurring as Newsletter section scrolls over it
+  const { scrollYProgress: teamScrollY } = useScroll({
+    target: newsletterRef,
+    offset: ["start end", "start start"]
+  });
+
+  const teamBlur = useTransform(teamScrollY, [0, 1], ["blur(0px)", "blur(12px)"]);
+  const teamScale = useTransform(teamScrollY, [0, 1], [1, 0.95]);
+  const teamOpacity = useTransform(teamScrollY, [0, 1], [1, 0.4]);
 
   const services = [
     {
@@ -316,9 +341,15 @@ export default function Home() {
       </section>
 
       {/* 3. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE & EXIT */}
-      <section 
+      <motion.section 
+        ref={servicesRef}
         id="our-services"
-        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-[-50px] sm:mt-[-70px] md:mt-[-90px] pt-[70px] sm:pt-[90px] md:pt-[110px] pb-32 px-6 md:px-12 w-full z-30 shadow-[0_-15px_30px_rgba(0,0,0,0.15)]"
+        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-[-50px] sm:mt-[-70px] md:mt-[-90px] pt-[70px] sm:pt-[90px] md:pt-[110px] pb-32 px-6 md:px-12 w-full z-10 shadow-[0_-15px_30px_rgba(0,0,0,0.15)] sticky top-0 origin-top"
+        style={{
+          filter: servicesBlur,
+          scale: servicesScale,
+          opacity: servicesOpacity
+        }}
       >
         <div className="max-w-6xl mx-auto">
           
@@ -558,15 +589,26 @@ export default function Home() {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* 4.5 TEAM SECTION */}
-      <TeamSection />
+      <motion.div
+        ref={teamRef}
+        className="relative z-20 sticky top-0 origin-top w-full overflow-hidden"
+        style={{
+          filter: teamBlur,
+          scale: teamScale,
+          opacity: teamOpacity
+        }}
+      >
+        <TeamSection />
+      </motion.div>
 
       {/* 5. NEWSLETTER CTA SECTION (VIBRANT BLUE) */}
       <section 
+        ref={newsletterRef}
         id="newsletter-cta"
-        className="relative bg-[#0f6bff] text-white py-24 px-6 md:px-12 w-full z-20 shadow-[0_15px_35px_rgba(0,0,0,0.15)] mt-12 overflow-hidden rounded-none"
+        className="relative bg-[#0f6bff] text-white py-24 px-6 md:px-12 w-full z-30 shadow-[0_15px_35px_rgba(0,0,0,0.15)] mt-12 overflow-hidden rounded-none"
       >
         {/* Decorative blur elements for premium background aesthetic */}
         <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none" />
