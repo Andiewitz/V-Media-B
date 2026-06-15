@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react';
 import { Navbar1 } from '@/components/ui/navbar-1';
-import { SparksCarousel } from '@/components/ui/sparks-carousel';
+import { CampaignChannelsSection } from '@/components/campaign-channels-section';
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -152,41 +152,6 @@ export default function Home() {
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
-        {/* Custom SVG clay stacks for the left and right sides, floating on the right side of the viewport to balance the left-aligned content */}
-        {/* Left stacked stones (positioned top-right) */}
-        <div className="hidden lg:block absolute right-32 top-[24%] w-20 h-36 opacity-85 select-none pointer-events-none z-20">
-          <svg viewBox="0 0 100 180" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] animate-bounce-slow">
-            {/* Base shadow */}
-            <ellipse cx="50" cy="155" rx="35" ry="9" fill="rgba(0,0,0,0.3)" />
-            {/* Teal bottom stone */}
-            <ellipse cx="50" cy="140" rx="30" ry="18" fill="#0D9488" />
-            {/* Purple middle stone */}
-            <ellipse cx="50" cy="106" rx="22" ry="16" fill="#8B5CF6" />
-            {/* Orange/pink middle stone */}
-            <ellipse cx="50" cy="76" rx="16" ry="14" fill="#FF5E62" />
-            {/* Yellow top stone */}
-            <circle cx="50" cy="50" r="11" fill="#FFD200" />
-          </svg>
-        </div>
-
-        {/* Right stacked stones (positioned bottom-right) */}
-        <div className="hidden md:block absolute right-8 bottom-32 w-20 h-36 opacity-85 select-none pointer-events-none z-20">
-          <svg viewBox="0 0 100 180" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-            {/* Base shadow */}
-            <ellipse cx="50" cy="155" rx="35" ry="9" fill="rgba(0,0,0,0.3)" />
-            {/* Gray support block */}
-            <rect x="22" y="145" width="56" height="10" rx="2" fill="#333333" />
-            {/* Blue bottom stone */}
-            <ellipse cx="50" cy="128" rx="26" ry="16" fill="#0f6bff" />
-            {/* Yellow middle stone */}
-            <ellipse cx="50" cy="98" rx="20" ry="13" fill="#FFD200" />
-            {/* Purple top stone */}
-            <circle cx="50" cy="74" r="11" fill="#8B5CF6" />
-            {/* Teal pointer cap */}
-            <path d="M 44,56 L 56,56 L 50,46 Z" fill="#0D9488" strokeLinejoin="round" />
-          </svg>
-        </div>
-
         <header className="w-full relative z-50">
           <Navbar1 />
         </header>
@@ -200,13 +165,13 @@ export default function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-display font-black tracking-tight text-white leading-tight text-left"
+                className="text-5xl sm:text-6xl md:text-7xl font-display font-black tracking-tight leading-[1.1] text-left uppercase"
               >
-                Sculpting velocity for{" "}
-                <span className="bg-gradient-to-r from-white via-[#A78BFA] to-[#0D9488] bg-clip-text text-transparent">
-                  High-Growth Brands
-                </span>{" "}
-                — and the Strategy to Scale It
+                GROW YOUR<br />
+                <span className="text-[#FFD200]">BUSINESS</span><br />
+                WITH<br />
+                <span className="text-[#FFD200]">DIGITAL</span>{" "}
+                <span className="text-[#0f6bff]">MARKETING</span>
               </motion.h1>
 
               <motion.p
@@ -223,55 +188,34 @@ export default function Home() {
               </motion.p>
             </div>
 
-            {/* Direct Link Action */}
+            {/* Direct Link Action & Metrics */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-start relative z-10"
+              className="flex flex-col sm:flex-row sm:items-center justify-start gap-6 relative z-10 w-full"
             >
               <a
                 href="#our-services"
-                className="px-8 py-3.5 rounded-full bg-white text-neutral-950 font-bold text-sm transition-all duration-200 hover:bg-neutral-200 hover:shadow-lg text-center flex items-center justify-center space-x-2 cursor-pointer font-display"
+                className="px-8 py-3.5 rounded-full bg-white text-neutral-950 font-bold text-sm transition-all duration-200 hover:bg-neutral-200 hover:shadow-lg text-center flex items-center justify-center space-x-2 cursor-pointer font-display shrink-0"
               >
                 <span>Start scaling for free</span>
                 <ArrowRight className="w-4 h-4 text-neutral-950" />
               </a>
-            </motion.div>
 
-            {/* Trust and ratings indicator */}
-            <div className="pt-8 border-t border-neutral-800 w-full max-w-xl mr-auto flex flex-col sm:flex-row items-start sm:items-center justify-start gap-x-6 gap-y-3 text-xs text-neutral-500 select-none font-display relative z-10">
-              <span className="font-mono font-semibold tracking-wider uppercase text-[9px] sm:text-[10px] text-neutral-500">
-                TRUSTED BY ELITE CAMPAIGN TEAMS
-              </span>
-              <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-2">
-                <div className="flex items-center gap-1">
-                  <span className="font-bold text-neutral-200">4.9</span>
-                  <span className="text-amber-400">★★★★★</span>
+              {/* ROAS & Sales metrics beside the button */}
+              <div className="flex items-center gap-6 text-xs text-neutral-400 font-display select-none">
+                <div className="flex flex-col text-left">
+                  <span className="font-bold text-white text-base sm:text-lg leading-none">₱800M+</span>
+                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider mt-1 font-semibold">Generated Sales</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-neutral-800 hidden sm:block" />
-                <div className="flex items-center gap-1">
-                  <span className="font-bold text-neutral-200">₱800M+</span>
-                  <span className="text-[10px]">generated</span>
-                </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-neutral-800 hidden sm:block" />
-                <div className="flex items-center gap-1">
-                  <span className="font-bold text-neutral-200">180x</span>
-                  <span className="text-[10px]">ROAS</span>
+                <div className="w-px h-8 bg-neutral-800" />
+                <div className="flex flex-col text-left">
+                  <span className="font-bold text-white text-base sm:text-lg leading-none">180x</span>
+                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider mt-1 font-semibold">Average ROAS</span>
                 </div>
               </div>
-            </div>
-
-            {/* Grayscale brand logo row */}
-            <div className="pt-6 border-t border-neutral-800 w-full max-w-xl mr-auto flex flex-wrap items-center justify-start gap-x-6 gap-y-3 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 relative z-10 select-none font-display">
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Canva</span>
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">HubSpot</span>
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Google</span>
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">OpenAI</span>
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Stripe</span>
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Notion</span>
-              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Figma</span>
-            </div>
+            </motion.div>
 
           </div>
         </main>
@@ -339,10 +283,41 @@ export default function Home() {
 
       </div>
 
-      {/* 2. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE & EXIT */}
+      {/* 2. BRAND LOGOS SECTION (YELLOW BANNER) - NOW MOVED ON TOP OF SERVICES */}
+      <section 
+        id="trusted-marquee"
+        className="relative bg-[#FFD200] text-neutral-900 rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-4 sm:mt-8 pt-12 pb-24 sm:pb-32 md:pb-40 px-6 md:px-12 w-full z-20 overflow-hidden shadow-[0_-10px_25px_rgba(0,0,0,0.1)]"
+      >
+        <div className="max-w-6xl mx-auto relative flex flex-col items-center justify-center">
+          {/* Heading */}
+          <div className="text-center max-w-3xl px-4 mb-4 relative z-20">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-900 leading-tight">
+              Our Digital Marketing Services
+            </h3>
+          </div>
+        </div>
+
+        {/* Logos Marquee Container */}
+        <div className="w-full overflow-hidden relative z-20 select-none py-4">
+          <div className="flex gap-20 whitespace-nowrap animate-marquee">
+            {brandLogos.map((logo, idx) => (
+              <div key={`logo-1-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
+                {logo.element}
+              </div>
+            ))}
+            {brandLogos.map((logo, idx) => (
+              <div key={`logo-2-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
+                {logo.element}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE & EXIT */}
       <section 
         id="our-services"
-        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-[50px] sm:rounded-b-[80px] md:rounded-b-[100px] pt-24 pb-32 px-6 md:px-12 w-full z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.08)]"
+        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-[-50px] sm:mt-[-70px] md:mt-[-90px] pt-[70px] sm:pt-[90px] md:pt-[110px] pb-32 px-6 md:px-12 w-full z-30 shadow-[0_-15px_30px_rgba(0,0,0,0.15)]"
       >
         <div className="max-w-6xl mx-auto">
           
@@ -455,214 +430,132 @@ export default function Home() {
               })}
             </div>
 
-            {/* Campaign Channels — Sparks Carousel */}
-            <div className="pt-20 w-full">
-              <SparksCarousel
-                title="Campaign Channels"
-                subtitle="Platforms & tools we deploy across every service."
-                items={[
-                  {
-                    id: "social-media",
-                    imageSrc: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80",
-                    title: "Social Media Marketing — Facebook, Instagram & TikTok campaigns",
-                    count: 4,
-                    countLabel: "Active Channels",
-                  },
-                  {
-                    id: "web-dev",
-                    imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
-                    title: "Website Development — Next.js, React & WordPress engineering",
-                    count: 3,
-                    countLabel: "Frameworks",
-                  },
-                  {
-                    id: "email",
-                    imageSrc: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&auto=format&fit=crop&q=80",
-                    title: "Email Marketing — Automated flows via Mailchimp & Klaviyo",
-                    count: 2,
-                    countLabel: "Platforms",
-                  },
-                  {
-                    id: "content",
-                    imageSrc: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&auto=format&fit=crop&q=80",
-                    title: "Content Creation — YouTube, Canva & Adobe CC production",
-                    count: 5,
-                    countLabel: "Asset Types",
-                  },
-                  {
-                    id: "ui-ux",
-                    imageSrc: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&auto=format&fit=crop&q=80",
-                    title: "UI/UX Design — Figma, Framer & Storybook prototyping",
-                    count: 4,
-                    countLabel: "Design Tools",
-                  },
-                  {
-                    id: "google-ads",
-                    imageSrc: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop&q=80",
-                    title: "Google Search SEM — Direct-intent paid acquisition campaigns",
-                    count: 3,
-                    countLabel: "Campaign Types",
-                  },
-                ]}
-              />
+            {/* Divider */}
+            <div className="pt-20 border-t border-neutral-800/80 w-full" />
+
+            {/* Track Record & Scale Section (Now Merged inside Services) */}
+            <div className="space-y-16">
+              {/* Header */}
+              <div className="text-left space-y-4 max-w-3xl">
+                <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase block font-semibold">
+                  TRACK RECORD & SCALE
+                </span>
+                <h2 className="text-4xl sm:text-5xl font-display font-black tracking-tight text-white leading-tight">
+                  Proven Results Across Elite High-Growth Campaigns.
+                </h2>
+              </div>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pt-4">
+                {/* Stat 1: 17 Million PHP Ad Spent */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex flex-col items-start space-y-4 border-l-2 border-neutral-800 pl-6"
+                >
+                  <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-white leading-none">
+                    ₱17M
+                  </div>
+                  <div className="space-y-1 text-left">
+                    <h4 className="text-lg font-bold text-white tracking-tight font-display">
+                      ₱17 Million PHP Ad Spent
+                    </h4>
+                    <p className="text-sm text-neutral-300 leading-relaxed max-w-xs font-display">
+                      Strategically deployed across meta channels and search networks to drive user acquisition.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Stat 2: 800 Million PHP Generated */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex flex-col items-start space-y-4 border-l-2 border-neutral-800 pl-6"
+                >
+                  <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter bg-gradient-to-r from-white to-[#8B5CF6] bg-clip-text text-transparent leading-none">
+                    ₱800M
+                  </div>
+                  <div className="space-y-1 text-left">
+                    <h4 className="text-lg font-bold text-white tracking-tight font-display">
+                      ₱800 Million PHP Generated
+                    </h4>
+                    <p className="text-sm text-neutral-300 leading-relaxed max-w-xs font-display">
+                      E-commerce scaling, lead generation, and custom conversion funnels designed for velocity.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Stat 3: 180x ROAS */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex flex-col items-start space-y-4 border-l-2 border-neutral-800 pl-6"
+                >
+                  <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-[#0D9488] leading-none">
+                    180x
+                  </div>
+                  <div className="space-y-1 text-left">
+                    <h4 className="text-lg font-bold text-white tracking-tight font-display">
+                      180x Average ROAS
+                    </h4>
+                    <p className="text-sm text-neutral-300 leading-relaxed max-w-xs font-display">
+                      Maximizing efficiency on spent capital through hyper-clean layout parameters.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Partnership Block - Large and Fancy */}
+              <div className="mt-8 flex flex-col items-start justify-start border-t border-neutral-800/80 pt-12 w-full">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative w-full max-w-4xl bg-[#232323] border border-neutral-800/80 p-8 md:p-12 rounded-[32px] md:rounded-[48px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-12"
+                >
+                  {/* Subtle backglow */}
+                  <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#8B5CF6]/5 blur-3xl pointer-events-none" />
+                  <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#0D9488]/5 blur-3xl pointer-events-none" />
+
+                  {/* Large Fancy Icon */}
+                  <motion.div 
+                    className="relative z-10 shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-neutral-900 flex items-center justify-center shadow-xl border border-neutral-800"
+                    whileHover={{ rotate: 5, scale: 1.05 }}
+                  >
+                    <svg className="w-10 h-10 md:w-12 md:h-12 text-[#FFD200] animate-pulse" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5" />
+                      <path d="M12 2C7.5 5.5 6 9.5 6 14c0 2 1 3.5 3 4.5s4 .5 6-1 3-2.5 3-4.5c0-4.5-1.5-8.5-6-12z" />
+                      <circle cx="12" cy="11" r="2" fill="currentColor" />
+                    </svg>
+                  </motion.div>
+
+                  {/* Text info */}
+                  <div className="flex-1 text-center md:text-left space-y-4 relative z-10">
+                    <div className="space-y-1">
+                      <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase font-bold block">
+                        STRATEGIC ECOSYSTEM PARTNER
+                      </span>
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-white leading-none">
+                        Raket Launcher PH
+                      </h3>
+                    </div>
+                    <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-xl font-display">
+                      We partner directly with the premier launchpad for creators and freelance talent in the Philippines to streamline operational pipelines, deploy visual assets at scale, and deliver elite campaign conversion speeds.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
             </div>
 
           </div>
 
-        </div>
-      </section>
-
-      {/* 3. BRAND LOGOS SECTION (YELLOW BANNER) */}
-      <section 
-        id="trusted-marquee"
-        className="relative bg-[#FFD200] text-neutral-900 rounded-b-[50px] sm:rounded-b-[80px] md:rounded-b-[100px] mt-[-50px] sm:mt-[-80px] md:mt-[-100px] pt-[90px] sm:pt-[110px] md:pt-[130px] pb-16 px-6 md:px-12 w-full z-10 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.15)] border-2 border-black/15"
-      >
-        <div className="max-w-6xl mx-auto relative flex flex-col items-center justify-center">
-          {/* Heading */}
-          <div className="text-center max-w-3xl px-4 mb-8 relative z-20">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-900 leading-tight">
-              Our Digital Marketing Services
-            </h3>
-          </div>
-        </div>
-
-        {/* Logos Marquee Container */}
-        <div className="w-full overflow-hidden relative z-20 select-none py-4">
-          <div className="flex gap-20 whitespace-nowrap animate-marquee">
-            {brandLogos.map((logo, idx) => (
-              <div key={`logo-1-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
-                {logo.element}
-              </div>
-            ))}
-            {brandLogos.map((logo, idx) => (
-              <div key={`logo-2-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
-                {logo.element}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. IMPACT STATS REVEAL SECTION (CREAM BACKGROUND) */}
-      <section className="relative bg-[#FDFCF8] py-28 px-6 md:px-12 w-full overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center md:text-left mb-16 md:mb-24">
-            <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase block font-semibold mb-3">
-              TRACK RECORD & SCALE
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-900 leading-tight max-w-2xl">
-              Proven Results Across Elite High-Growth Campaigns.
-            </h2>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pt-4">
-            {/* Stat 1: 17 Million PHP Ad Spent */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center md:items-start space-y-4 border-l-2 border-neutral-200 pl-0 md:pl-6"
-            >
-              <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-neutral-900 leading-none">
-                ₱17M
-              </div>
-              <div className="space-y-1 text-center md:text-left">
-                <h4 className="text-lg font-bold text-neutral-800 tracking-tight font-display">
-                  ₱17 Million PHP Ad Spent
-                </h4>
-                <p className="text-sm text-neutral-500 leading-relaxed max-w-xs font-display">
-                  Strategically deployed across meta channels and search networks to drive user acquisition.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Stat 2: 800 Million PHP Generated */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center md:items-start space-y-4 border-l-2 border-neutral-200 pl-0 md:pl-6"
-            >
-              <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-neutral-900 leading-none bg-gradient-to-r from-neutral-950 to-[#8B5CF6] bg-clip-text text-transparent">
-                ₱800M
-              </div>
-              <div className="space-y-1 text-center md:text-left">
-                <h4 className="text-lg font-bold text-neutral-800 tracking-tight font-display">
-                  ₱800 Million PHP Generated
-                </h4>
-                <p className="text-sm text-neutral-500 leading-relaxed max-w-xs font-display">
-                  E-commerce scaling, lead generation, and custom conversion funnels designed for velocity.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Stat 3: 180x ROAS */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center md:items-start space-y-4 border-l-2 border-neutral-200 pl-0 md:pl-6"
-            >
-              <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-[#0D9488] leading-none">
-                180x
-              </div>
-              <div className="space-y-1 text-center md:text-left">
-                <h4 className="text-lg font-bold text-neutral-800 tracking-tight font-display">
-                  180x Average ROAS
-                </h4>
-                <p className="text-sm text-neutral-500 leading-relaxed max-w-xs font-display">
-                  Maximizing efficiency on spent capital through hyper-clean layout parameters.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Partnership Block - Large and Fancy */}
-          <div className="mt-8 flex flex-col items-center justify-center border-t border-neutral-200/80 pt-8 w-full">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-4xl bg-[#FDFCF8] border-2 border-neutral-200/60 p-8 md:p-12 rounded-[32px] md:rounded-[48px] shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-12"
-            >
-              {/* Subtle backglow */}
-              <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#8B5CF6]/5 blur-3xl pointer-events-none" />
-              <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#0D9488]/5 blur-3xl pointer-events-none" />
-
-              {/* Large Fancy Icon */}
-              <motion.div 
-                className="relative z-10 shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-neutral-900 flex items-center justify-center shadow-xl border border-neutral-800"
-                whileHover={{ rotate: 5, scale: 1.05 }}
-              >
-                <svg className="w-10 h-10 md:w-12 md:h-12 text-[#FFD200] animate-pulse" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5" />
-                  <path d="M12 2C7.5 5.5 6 9.5 6 14c0 2 1 3.5 3 4.5s4 .5 6-1 3-2.5 3-4.5c0-4.5-1.5-8.5-6-12z" />
-                  <circle cx="12" cy="11" r="2" fill="currentColor" />
-                </svg>
-              </motion.div>
-
-              {/* Text info */}
-              <div className="flex-1 text-center md:text-left space-y-4 relative z-10">
-                <div className="space-y-1">
-                  <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase font-bold block">
-                    STRATEGIC ECOSYSTEM PARTNER
-                  </span>
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-950 leading-none">
-                    Raket Launcher PH
-                  </h3>
-                </div>
-                <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl font-display">
-                  We partner directly with the premier launchpad for creators and freelance talent in the Philippines to streamline operational pipelines, deploy visual assets at scale, and deliver elite campaign conversion speeds.
-                </p>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -709,7 +602,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. FOOTER TRANSITION SPACER */}
+      {/* 6. CAMPAIGN CHANNELS SECTION */}
+      <CampaignChannelsSection />
+
+      {/* 7. FOOTER TRANSITION SPACER */}
       <div className="h-24 bg-[#FDFCF8] w-full" />
     </div>
   );
