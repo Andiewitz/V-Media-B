@@ -17,36 +17,30 @@ const Navbar1 = () => {
         {/* Brand Logo and Name */}
         <div className="flex items-center gap-2">
           <motion.div
-            className="w-6 h-6 flex items-center justify-center"
+            className="w-8 h-8 flex items-center justify-center flex-shrink-0"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            whileHover={{ rotate: 10, scale: 1.05 }}
+            whileHover={{ scale: 1.08 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Clay-style gradient arch logo */}
-            <svg className="w-full h-full" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path 
-                d="M4 28C4 14.7452 14.7452 4 28 4" 
-                stroke="url(#clay-gradient-navbar)" 
-                strokeWidth="7" 
-                strokeLinecap="round" 
-              />
-              <defs>
-                <linearGradient id="clay-gradient-navbar" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#0D9488" />
-                  <stop offset="0.5" stopColor="#8B5CF6" />
-                  <stop offset="1" stopColor="#FF9966" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <img
+              src="/v-media-logo.png"
+              alt="V-Media logo"
+              className="w-full h-full object-contain mix-blend-screen"
+            />
           </motion.div>
-          <span className="font-display font-extrabold tracking-tight text-white text-base sm:text-lg">
-            V-Media
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold tracking-tight text-white text-base sm:text-lg">
+              V-Media
+            </span>
+            <span className="text-xs text-neutral-400 font-medium tracking-normal pl-2 border-l border-neutral-800 hidden sm:inline-block">
+              Digital Marketing Solutions
+            </span>
+          </div>
         </div>
         
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-7">
+        <nav className="hidden lg:flex items-center space-x-7 ml-auto mr-8">
           {["Services", "Solutions", "Case Studies", "Resources", "Company", "Pricing"].map((item) => (
             <a 
               key={item}
@@ -59,26 +53,7 @@ const Navbar1 = () => {
         </nav>
 
         {/* Right Actions Block */}
-        <div className="hidden lg:flex items-center gap-4">
-          {/* Search Shortcut */}
-          <div className="flex items-center gap-2 px-3 py-1.5 border border-neutral-800 rounded-lg text-neutral-500 text-xs bg-neutral-900/50 hover:bg-neutral-900 cursor-pointer select-none transition-colors">
-            <Search className="w-3.5 h-3.5 text-neutral-500" />
-            <kbd className="font-sans text-[10px] text-neutral-500 tracking-tight">⌘K</kbd>
-          </div>
-
-          {/* Login Link */}
-          <a href="#" className="text-sm font-semibold text-neutral-450 hover:text-white transition-colors font-display">
-            Log in
-          </a>
-
-          {/* Get a Demo Button */}
-          <a
-            href="#our-services"
-            className="inline-flex items-center justify-center px-4.5 py-2 text-xs font-bold text-neutral-300 bg-neutral-900 hover:bg-neutral-800 rounded-full border border-neutral-800 transition-colors font-display"
-          >
-            Get a demo
-          </a>
-
+        <div className="hidden lg:flex items-center">
           {/* Start Free Trial Button */}
           <a
             href="#newsletter-cta"
@@ -153,20 +128,6 @@ const Navbar1 = () => {
                 exit={{ opacity: 0, y: 15 }}
                 className="pt-8 border-t border-neutral-800 flex flex-col gap-4"
               >
-                <a
-                  href="#"
-                  className="text-center py-3 text-sm text-neutral-450 font-semibold font-display"
-                  onClick={toggleMenu}
-                >
-                  Log in
-                </a>
-                <a
-                  href="#our-services"
-                  className="inline-flex items-center justify-center w-full py-3 text-sm text-neutral-300 bg-neutral-900 border border-neutral-800 font-bold rounded-full font-display"
-                  onClick={toggleMenu}
-                >
-                  Get a demo
-                </a>
                 <a
                   href="#newsletter-cta"
                   className="inline-flex items-center justify-center w-full py-3 text-sm text-neutral-950 bg-white font-bold rounded-full font-display"
