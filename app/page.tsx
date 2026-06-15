@@ -145,65 +145,65 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FDFCF8] text-neutral-900 font-sans selection:bg-neutral-900 selection:text-white overflow-x-hidden scroll-smooth">
+    <div className="relative min-h-screen bg-[#121212] text-neutral-200 font-sans selection:bg-neutral-800 selection:text-white overflow-x-hidden scroll-smooth">
       
       {/* 1. HERO VIEWPORT - EXACTLY VIEWPORT SIZED */}
-      <div className="relative h-screen md:h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-[#FDFCF8]">
+      <div className="relative h-screen md:h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-[#121212]">
         {/* Subtle grid pattern background */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e1e0da_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+
+        {/* Custom SVG clay stacks for the left and right sides, floating on the right side of the viewport to balance the left-aligned content */}
+        {/* Left stacked stones (positioned top-right) */}
+        <div className="hidden lg:block absolute right-32 top-[24%] w-20 h-36 opacity-85 select-none pointer-events-none z-20">
+          <svg viewBox="0 0 100 180" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] animate-bounce-slow">
+            {/* Base shadow */}
+            <ellipse cx="50" cy="155" rx="35" ry="9" fill="rgba(0,0,0,0.3)" />
+            {/* Teal bottom stone */}
+            <ellipse cx="50" cy="140" rx="30" ry="18" fill="#0D9488" />
+            {/* Purple middle stone */}
+            <ellipse cx="50" cy="106" rx="22" ry="16" fill="#8B5CF6" />
+            {/* Orange/pink middle stone */}
+            <ellipse cx="50" cy="76" rx="16" ry="14" fill="#FF5E62" />
+            {/* Yellow top stone */}
+            <circle cx="50" cy="50" r="11" fill="#FFD200" />
+          </svg>
+        </div>
+
+        {/* Right stacked stones (positioned bottom-right) */}
+        <div className="hidden md:block absolute right-8 bottom-32 w-20 h-36 opacity-85 select-none pointer-events-none z-20">
+          <svg viewBox="0 0 100 180" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)] animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
+            {/* Base shadow */}
+            <ellipse cx="50" cy="155" rx="35" ry="9" fill="rgba(0,0,0,0.3)" />
+            {/* Gray support block */}
+            <rect x="22" y="145" width="56" height="10" rx="2" fill="#333333" />
+            {/* Blue bottom stone */}
+            <ellipse cx="50" cy="128" rx="26" ry="16" fill="#0f6bff" />
+            {/* Yellow middle stone */}
+            <ellipse cx="50" cy="98" rx="20" ry="13" fill="#FFD200" />
+            {/* Purple top stone */}
+            <circle cx="50" cy="74" r="11" fill="#8B5CF6" />
+            {/* Teal pointer cap */}
+            <path d="M 44,56 L 56,56 L 50,46 Z" fill="#0D9488" strokeLinejoin="round" />
+          </svg>
+        </div>
 
         <header className="w-full relative z-50">
           <Navbar1 />
         </header>
 
         {/* HERO MAIN CONTENT */}
-        <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 max-w-6xl mx-auto w-full pt-20 pb-16 my-auto">
-          <div className="w-full bg-[#F9F8F4] border border-neutral-200/60 rounded-[32px] md:rounded-[48px] shadow-[0_12px_45px_rgba(0,0,0,0.03)] p-8 sm:p-12 md:p-16 relative overflow-hidden flex flex-col items-center justify-center text-center space-y-8 max-w-5xl mx-auto">
+        <main className="relative z-10 flex-1 flex flex-col items-start justify-center px-6 sm:px-12 md:px-16 lg:px-24 max-w-7xl mx-auto w-full pt-28 pb-16 my-auto">
+          <div className="w-full relative flex flex-col items-start justify-center text-left space-y-8 max-w-3xl mr-auto">
             
-            {/* Custom SVG clay stacks for the left and right sides */}
-            {/* Left stacked stones */}
-            <div className="hidden md:block absolute left-8 bottom-8 w-20 h-36 opacity-85 select-none pointer-events-none">
-              <svg viewBox="0 0 100 180" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.06)]">
-                {/* Base shadow */}
-                <ellipse cx="50" cy="155" rx="35" ry="9" fill="rgba(0,0,0,0.08)" />
-                {/* Teal bottom stone */}
-                <ellipse cx="50" cy="140" rx="30" ry="18" fill="#0D9488" />
-                {/* Purple middle stone */}
-                <ellipse cx="50" cy="106" rx="22" ry="16" fill="#8B5CF6" />
-                {/* Orange/pink middle stone */}
-                <ellipse cx="50" cy="76" rx="16" ry="14" fill="#FF5E62" />
-                {/* Yellow top stone */}
-                <circle cx="50" cy="50" r="11" fill="#FFD200" />
-              </svg>
-            </div>
-
-            {/* Right stacked stones */}
-            <div className="hidden md:block absolute right-8 bottom-8 w-20 h-36 opacity-85 select-none pointer-events-none">
-              <svg viewBox="0 0 100 180" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.06)]">
-                {/* Base shadow */}
-                <ellipse cx="50" cy="155" rx="35" ry="9" fill="rgba(0,0,0,0.08)" />
-                {/* Gray support block */}
-                <rect x="22" y="145" width="56" height="10" rx="2" fill="#E5E5E5" />
-                {/* Blue bottom stone */}
-                <ellipse cx="50" cy="128" rx="26" ry="16" fill="#0f6bff" />
-                {/* Yellow middle stone */}
-                <ellipse cx="50" cy="98" rx="20" ry="13" fill="#FFD200" />
-                {/* Purple top stone */}
-                <circle cx="50" cy="74" r="11" fill="#8B5CF6" />
-                {/* Teal pointer cap */}
-                <path d="M 44,56 L 56,56 L 50,46 Z" fill="#0D9488" strokeLinejoin="round" />
-              </svg>
-            </div>
-
-            <div className="space-y-6 max-w-3xl mx-auto relative z-10">
+            <div className="space-y-6 max-w-2xl relative z-10 text-left">
               <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-display font-black tracking-tight text-neutral-950 leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-display font-black tracking-tight text-white leading-tight text-left"
               >
-                Sculpting velocity for <br className="hidden sm:inline" />
-                <span className="bg-gradient-to-r from-neutral-950 via-[#8B5CF6] to-[#0D9488] bg-clip-text text-transparent">
+                Sculpting velocity for{" "}
+                <span className="bg-gradient-to-r from-white via-[#A78BFA] to-[#0D9488] bg-clip-text text-transparent">
                   High-Growth Brands
                 </span>{" "}
                 — and the Strategy to Scale It
@@ -213,10 +213,10 @@ export default function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-sm sm:text-base md:text-lg text-neutral-500 leading-relaxed font-display max-w-2xl mx-auto"
+                className="text-sm sm:text-base md:text-lg text-neutral-400 leading-relaxed font-display max-w-xl text-left"
               >
                 Tactical digital activation. Inspired by the brand DNA parameters of{" "}
-                <code className="bg-neutral-100 text-[#8B5CF6] px-1.5 py-0.5 rounded text-xs select-all font-mono border border-neutral-200">
+                <code className="bg-neutral-800 text-[#A78BFA] px-1.5 py-0.5 rounded text-xs select-all font-mono border border-neutral-700">
                   v-mediadigitalmarketingsolutions.com
                 </code>
                 , we deploy hyper-clean layouts custom-engineered to convert paid and search acquisitions.
@@ -228,49 +228,49 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-center relative z-10"
+              className="flex items-center justify-start relative z-10"
             >
               <a
                 href="#our-services"
-                className="px-8 py-3.5 rounded-full bg-neutral-950 text-white font-bold text-sm transition-all duration-200 hover:bg-neutral-800 hover:shadow-lg text-center flex items-center justify-center space-x-2 cursor-pointer font-display"
+                className="px-8 py-3.5 rounded-full bg-white text-neutral-950 font-bold text-sm transition-all duration-200 hover:bg-neutral-200 hover:shadow-lg text-center flex items-center justify-center space-x-2 cursor-pointer font-display"
               >
                 <span>Start scaling for free</span>
-                <ArrowRight className="w-4 h-4 text-neutral-400" />
+                <ArrowRight className="w-4 h-4 text-neutral-950" />
               </a>
             </motion.div>
 
             {/* Trust and ratings indicator */}
-            <div className="pt-8 border-t border-neutral-200/80 w-full max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400 select-none font-display relative z-10">
-              <span className="font-mono font-semibold tracking-wider uppercase text-[9px] sm:text-[10px] text-neutral-400/80">
+            <div className="pt-8 border-t border-neutral-800 w-full max-w-xl mr-auto flex flex-col sm:flex-row items-start sm:items-center justify-start gap-x-6 gap-y-3 text-xs text-neutral-500 select-none font-display relative z-10">
+              <span className="font-mono font-semibold tracking-wider uppercase text-[9px] sm:text-[10px] text-neutral-500">
                 TRUSTED BY ELITE CAMPAIGN TEAMS
               </span>
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-2">
                 <div className="flex items-center gap-1">
-                  <span className="font-bold text-neutral-700">4.9</span>
+                  <span className="font-bold text-neutral-200">4.9</span>
                   <span className="text-amber-400">★★★★★</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 hidden sm:block" />
+                <div className="w-1.5 h-1.5 rounded-full bg-neutral-800 hidden sm:block" />
                 <div className="flex items-center gap-1">
-                  <span className="font-bold text-neutral-700">₱800M+</span>
+                  <span className="font-bold text-neutral-200">₱800M+</span>
                   <span className="text-[10px]">generated</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 hidden sm:block" />
+                <div className="w-1.5 h-1.5 rounded-full bg-neutral-800 hidden sm:block" />
                 <div className="flex items-center gap-1">
-                  <span className="font-bold text-neutral-700">180x</span>
+                  <span className="font-bold text-neutral-200">180x</span>
                   <span className="text-[10px]">ROAS</span>
                 </div>
               </div>
             </div>
 
             {/* Grayscale brand logo row */}
-            <div className="pt-6 border-t border-neutral-200/50 w-full max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-4 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 relative z-10 select-none font-display">
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">Canva</span>
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">HubSpot</span>
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">Google</span>
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">OpenAI</span>
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">Stripe</span>
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">Notion</span>
-              <span className="text-sm font-bold text-neutral-700 uppercase tracking-tight">Figma</span>
+            <div className="pt-6 border-t border-neutral-800 w-full max-w-xl mr-auto flex flex-wrap items-center justify-start gap-x-6 gap-y-3 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 relative z-10 select-none font-display">
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Canva</span>
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">HubSpot</span>
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Google</span>
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">OpenAI</span>
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Stripe</span>
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Notion</span>
+              <span className="text-sm font-bold text-neutral-400 uppercase tracking-tight">Figma</span>
             </div>
 
           </div>
