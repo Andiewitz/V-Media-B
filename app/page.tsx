@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ShieldCheck, ChevronDown } from 'lucide-react';
 import { Navbar1 } from '@/components/ui/navbar-1';
 import { CampaignChannelsSection } from '@/components/campaign-channels-section';
+import { TeamSection } from '@/components/team-section';
 
 export default function Home() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -558,6 +559,9 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* 4.5 TEAM SECTION */}
+      <TeamSection />
 
       {/* 5. NEWSLETTER CTA SECTION (VIBRANT BLUE) */}
       <section 
