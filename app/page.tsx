@@ -471,9 +471,174 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SEAMLESS CREAM BACKGROUND TRANSITION SPACER */}
-      <div className="h-32 bg-[#FDFCF8] w-full" />
+      {/* 4. IMPACT STATS REVEAL SECTION (CREAM BACKGROUND) */}
+      <section className="relative bg-[#FDFCF8] py-28 px-6 md:px-12 w-full overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center md:text-left mb-16 md:mb-24">
+            <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase block font-semibold mb-3">
+              TRACK RECORD & SCALE
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-900 leading-tight max-w-2xl">
+              Proven Results Across Elite High-Growth Campaigns.
+            </h2>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pt-4">
+            {/* Stat 1: 17 Million PHP Ad Spent */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center md:items-start space-y-4 border-l-2 border-neutral-200 pl-0 md:pl-6"
+            >
+              <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-neutral-900 leading-none">
+                ₱17M
+              </div>
+              <div className="space-y-1 text-center md:text-left">
+                <h4 className="text-lg font-bold text-neutral-800 tracking-tight font-display">
+                  ₱17 Million PHP Ad Spent
+                </h4>
+                <p className="text-sm text-neutral-500 leading-relaxed max-w-xs font-display">
+                  Strategically deployed across meta channels and search networks to drive user acquisition.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Stat 2: 800 Million PHP Generated */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center md:items-start space-y-4 border-l-2 border-neutral-200 pl-0 md:pl-6"
+            >
+              <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-neutral-900 leading-none bg-gradient-to-r from-neutral-950 to-[#8B5CF6] bg-clip-text text-transparent">
+                ₱800M
+              </div>
+              <div className="space-y-1 text-center md:text-left">
+                <h4 className="text-lg font-bold text-neutral-800 tracking-tight font-display">
+                  ₱800 Million PHP Generated
+                </h4>
+                <p className="text-sm text-neutral-500 leading-relaxed max-w-xs font-display">
+                  E-commerce scaling, lead generation, and custom conversion funnels designed for velocity.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Stat 3: 180x ROAS */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center md:items-start space-y-4 border-l-2 border-neutral-200 pl-0 md:pl-6"
+            >
+              <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-[#0D9488] leading-none">
+                180x
+              </div>
+              <div className="space-y-1 text-center md:text-left">
+                <h4 className="text-lg font-bold text-neutral-800 tracking-tight font-display">
+                  180x Average ROAS
+                </h4>
+                <p className="text-sm text-neutral-500 leading-relaxed max-w-xs font-display">
+                  Maximizing efficiency on spent capital through hyper-clean layout parameters.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Partnership Block - Large and Fancy */}
+          <div className="mt-8 flex flex-col items-center justify-center border-t border-neutral-200/80 pt-8 w-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-4xl bg-[#FDFCF8] border-2 border-neutral-200/60 p-8 md:p-12 rounded-[32px] md:rounded-[48px] shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-12"
+            >
+              {/* Subtle backglow */}
+              <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#8B5CF6]/5 blur-3xl pointer-events-none" />
+              <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#0D9488]/5 blur-3xl pointer-events-none" />
+
+              {/* Large Fancy Icon */}
+              <motion.div 
+                className="relative z-10 shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-neutral-900 flex items-center justify-center shadow-xl border border-neutral-800"
+                whileHover={{ rotate: 5, scale: 1.05 }}
+              >
+                <svg className="w-10 h-10 md:w-12 md:h-12 text-[#FFD200] animate-pulse" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5" />
+                  <path d="M12 2C7.5 5.5 6 9.5 6 14c0 2 1 3.5 3 4.5s4 .5 6-1 3-2.5 3-4.5c0-4.5-1.5-8.5-6-12z" />
+                  <circle cx="12" cy="11" r="2" fill="currentColor" />
+                </svg>
+              </motion.div>
+
+              {/* Text info */}
+              <div className="flex-1 text-center md:text-left space-y-4 relative z-10">
+                <div className="space-y-1">
+                  <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase font-bold block">
+                    STRATEGIC ECOSYSTEM PARTNER
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-950 leading-none">
+                    Raket Launcher PH
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl font-display">
+                  We partner directly with the premier launchpad for creators and freelance talent in the Philippines to streamline operational pipelines, deploy visual assets at scale, and deliver elite campaign conversion speeds.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. NEWSLETTER CTA SECTION (VIBRANT BLUE) */}
+      <section 
+        id="newsletter-cta"
+        className="relative bg-[#0f6bff] text-white py-24 px-6 md:px-12 w-full z-20 shadow-[0_15px_35px_rgba(0,0,0,0.15)] mt-12 overflow-hidden rounded-none"
+      >
+        {/* Decorative blur elements for premium background aesthetic */}
+        <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+        <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+          <div className="space-y-3">
+            <span className="font-mono text-neutral-300 tracking-widest text-xs uppercase font-bold block">
+              STAY UPDATED
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-white leading-tight">
+              Subscribe to Our Newsletter
+            </h2>
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-lg mx-auto font-display">
+              Get high-converting landing page guides, campaign optimization audits, and search acquisition insights delivered straight to your inbox.
+            </p>
+          </div>
+
+          {/* Email Form */}
+          <form 
+            onSubmit={(e) => e.preventDefault()} 
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto"
+          >
+            <input 
+              type="email" 
+              placeholder="Enter your business email" 
+              required
+              className="w-full px-5 py-4 rounded-xl border border-neutral-300/40 bg-white/10 font-display text-sm text-white placeholder-neutral-300/60 focus:outline-none focus:ring-2 focus:ring-white focus:bg-white focus:text-neutral-900 focus:placeholder-neutral-400 transition-all"
+            />
+            <button 
+              type="submit"
+              className="w-full sm:w-auto shrink-0 px-8 py-4 rounded-xl bg-white text-[#0f6bff] font-display font-bold text-sm hover:bg-neutral-100 active:scale-[0.98] transition-all hover:shadow-lg hover:shadow-black/10 cursor-pointer"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* 6. FOOTER TRANSITION SPACER */}
+      <div className="h-24 bg-[#FDFCF8] w-full" />
     </div>
   );
 }
-
