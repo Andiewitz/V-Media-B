@@ -41,7 +41,7 @@ const Navbar1 = () => {
         
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-7 ml-auto mr-8">
-          {["Services", "Solutions", "Case Studies", "Resources", "Company", "Pricing"].map((item) => (
+          {["Company", "Solutions", "Blogs", "Resources", "Pricing"].map((item) => (
             <a 
               key={item}
               href={item === "Services" ? "#our-services" : "#"} 
@@ -103,7 +103,7 @@ const Navbar1 = () => {
             </motion.button>
             
             <div className="flex flex-col space-y-6">
-              {["Services", "Solutions", "Case Studies", "Resources", "Company", "Pricing"].map((item, i) => (
+              {["Company", "Solutions", "Blogs", "Resources", "Pricing"].map((item, i) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, x: 15 }}

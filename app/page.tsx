@@ -9,7 +9,7 @@ import { TeamSection } from '@/components/team-section';
 import { SiteFooter } from '@/components/site-footer';
 
 export default function Home() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const services = [
     {
@@ -298,11 +298,11 @@ export default function Home() {
       {/* 2. BRAND LOGOS SECTION (YELLOW BANNER) - NOW MOVED ON TOP OF SERVICES */}
       <section 
         id="trusted-marquee"
-        className="relative bg-[#FFD200] text-neutral-900 rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-4 sm:mt-8 pt-12 pb-24 sm:pb-32 md:pb-40 px-6 md:px-12 w-full z-20 overflow-hidden shadow-[0_-10px_25px_rgba(0,0,0,0.1)]"
+        className="relative bg-[#FFD200] text-neutral-900 rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-4 sm:mt-8 pt-8 pb-16 sm:pb-20 md:pb-24 px-6 md:px-12 w-full z-20 overflow-hidden shadow-[0_-10px_25px_rgba(0,0,0,0.1)]"
       >
         <div className="max-w-6xl mx-auto relative flex flex-col items-center justify-center">
           {/* Heading */}
-          <div className="text-center max-w-3xl px-4 mb-4 relative z-20">
+          <div className="text-center max-w-3xl px-4 mb-2 relative z-20">
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight text-neutral-900 leading-tight">
               Our Digital Marketing Services
             </h3>
@@ -310,8 +310,8 @@ export default function Home() {
         </div>
 
         {/* Logos Marquee Container */}
-        <div className="w-full overflow-hidden relative z-20 select-none py-4">
-          <div className="flex gap-20 whitespace-nowrap animate-marquee">
+        <div className="w-full overflow-hidden relative z-20 select-none py-2">
+          <div className="flex gap-14 whitespace-nowrap animate-marquee">
             {brandLogos.map((logo, idx) => (
               <div key={`logo-1-${idx}`} className="flex items-center justify-center text-neutral-900 opacity-85 hover:opacity-100 transition-opacity duration-200">
                 {logo.element}
@@ -329,7 +329,7 @@ export default function Home() {
       {/* 3. OUR SERVICES - CHARCOAL BACKGROUND WITH CURVED ENTRANCE & EXIT */}
       <section 
         id="our-services"
-        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-[-50px] sm:mt-[-70px] md:mt-[-90px] pt-[70px] sm:pt-[90px] md:pt-[110px] pb-32 px-6 md:px-12 w-full z-30 shadow-[0_-15px_30px_rgba(0,0,0,0.15)]"
+        className="relative bg-[#1E1E1E] text-[#FDFCF8] rounded-t-[50px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-none mt-[-45px] sm:mt-[-65px] md:mt-[-85px] pt-[70px] sm:pt-[90px] md:pt-[110px] pb-32 px-6 md:px-12 w-full z-30 shadow-[0_-15px_30px_rgba(0,0,0,0.15)]"
       >
         <div className="max-w-6xl mx-auto">
           
@@ -338,9 +338,6 @@ export default function Home() {
             
             {/* Header and Subtext */}
             <div className="space-y-4 max-w-3xl">
-              <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase block font-semibold">
-                CAPABILITIES
-              </span>
               <h2 className="text-4xl sm:text-5xl font-display font-black tracking-tight text-white leading-tight">
                 Our Services
               </h2>
@@ -365,7 +362,7 @@ export default function Home() {
                     >
                       <div className="flex items-center gap-4 sm:gap-6">
                         {/* Dot Indicator */}
-                        <span className="text-[#8B5CF6] text-xl leading-none font-bold select-none group-hover:scale-125 transition-transform">
+                        <span className="text-[#0f6bff] text-xl leading-none font-bold select-none group-hover:scale-125 transition-transform">
                           •
                         </span>
                         {/* Title text */}
@@ -414,7 +411,7 @@ export default function Home() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                   {service.deliverables.map((item, i) => (
                                     <div key={i} className="flex items-center gap-2 text-xs text-neutral-400">
-                                      <div className="w-1 h-1 rounded-full bg-[#8B5CF6]" />
+                                      <div className="w-1 h-1 rounded-full bg-[#0f6bff]" />
                                       <span>{item}</span>
                                     </div>
                                   ))}
@@ -443,22 +440,19 @@ export default function Home() {
             </div>
 
             {/* Divider */}
-            <div className="pt-20 border-t border-neutral-800/80 w-full" />
+            <div className="pt-12 border-t border-neutral-800/80 w-full" />
 
             {/* Track Record & Scale Section (Now Merged inside Services) */}
             <div className="space-y-16">
               {/* Header */}
               <div className="text-left space-y-4 max-w-3xl">
-                <span className="font-mono text-[#8B5CF6] tracking-widest text-xs uppercase block font-semibold">
-                  TRACK RECORD & SCALE
-                </span>
                 <h2 className="text-4xl sm:text-5xl font-display font-black tracking-tight text-white leading-tight">
                   Proven Results Across Elite High-Growth Campaigns.
                 </h2>
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pt-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
                 {/* Stat 1: 17 Million PHP Ad Spent */}
                 <motion.div 
                   initial={{ opacity: 0, y: 40 }}
@@ -524,7 +518,7 @@ export default function Home() {
               </div>
 
               {/* Partnership Block - Large and Fancy */}
-              <div className="mt-8 flex flex-col items-start justify-start border-t border-neutral-800/80 pt-12 w-full">
+              <div className="flex flex-col items-start justify-start border-t border-neutral-800/80 pt-12 w-full">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
