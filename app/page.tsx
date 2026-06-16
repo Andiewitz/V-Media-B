@@ -160,6 +160,16 @@ export default function Home() {
 
         {/* HERO MAIN CONTENT */}
         <main className="relative z-10 flex-1 flex flex-col items-start justify-center px-6 sm:px-12 md:px-16 lg:px-24 max-w-7xl mx-auto w-full pt-28 pb-16 my-auto">
+          
+          {/* Right side logo - vector SVG */}
+          <div className="absolute -right-20 sm:-right-24 md:-right-28 lg:-right-32 top-1/2 -translate-y-1/2 z-20">
+            <img 
+              src="/v-media-logo.png" 
+              alt="V-Media Logo" 
+              className="w-[110vh] h-[110vh] opacity-10 mix-blend-screen pointer-events-none"
+            />
+          </div>
+
           <div className="w-full relative flex flex-col items-start justify-center text-left space-y-8 max-w-3xl mr-auto">
             
             <div className="space-y-6 max-w-2xl relative z-10 text-left">
