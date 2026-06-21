@@ -30,10 +30,10 @@ const Navbar1 = () => {
             />
           </motion.div>
           <div className="flex items-center gap-2">
-            <span className="font-display font-extrabold tracking-tight text-white text-base sm:text-lg">
+            <span className="font-display font-extrabold tracking-tight text-[#FFD200] text-base sm:text-lg">
               V-Media
             </span>
-            <span className="text-xs text-neutral-400 font-medium tracking-normal pl-2 border-l border-neutral-800 hidden sm:inline-block">
+            <span className="font-display font-extrabold tracking-tight text-[#0f6bff] text-base sm:text-lg pl-2 border-l border-neutral-800 hidden sm:inline-block">
               Digital Marketing Solutions
             </span>
           </div>
@@ -52,14 +52,13 @@ const Navbar1 = () => {
           ))}
         </nav>
 
-        {/* Right Actions Block */}
+        {/* Get Started Button */}
         <div className="hidden lg:flex items-center">
-          {/* Start Free Trial Button */}
           <a
             href="#newsletter-cta"
             className="inline-flex items-center justify-center px-4.5 py-2 text-xs font-bold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-colors shadow-xs font-display"
           >
-            Start free trial
+            Get started
           </a>
         </div>
 
@@ -133,7 +132,7 @@ const Navbar1 = () => {
                   className="inline-flex items-center justify-center w-full py-3 text-sm text-neutral-950 bg-white font-bold rounded-full font-display"
                   onClick={toggleMenu}
                 >
-                  Start free trial
+                  Get started
                 </a>
               </motion.div>
             </div>

@@ -177,7 +177,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-5xl sm:text-6xl md:text-7xl font-display font-black tracking-tight leading-[1.1] text-left uppercase"
+                className="text-[50px] sm:text-[62px] md:text-[74px] font-display font-black tracking-tight leading-[1.1] text-left uppercase"
               >
                 GROW YOUR<br />
                 <span className="text-[#FFD200]">BUSINESS</span><br />
@@ -192,11 +192,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-sm sm:text-base md:text-lg text-neutral-400 leading-relaxed font-display max-w-xl text-left"
               >
-                Tactical digital activation. Inspired by the brand DNA parameters of{" "}
-                <code className="bg-neutral-800 text-[#A78BFA] px-1.5 py-0.5 rounded text-xs select-all font-mono border border-neutral-700">
-                  v-mediadigitalmarketingsolutions.com
-                </code>
-                , we deploy hyper-clean layouts custom-engineered to convert paid and search acquisitions.
+                Performance-Driven Digital Marketing Agency with Years of Proven Results Delivering Exceptional Growth for Businesses. Transform your Business into the Digital Age.
               </motion.p>
             </div>
 
@@ -211,20 +207,20 @@ export default function Home() {
                 href="#our-services"
                 className="px-8 py-3.5 rounded-full bg-white text-neutral-950 font-bold text-sm transition-all duration-200 hover:bg-neutral-200 hover:shadow-lg text-center flex items-center justify-center space-x-2 cursor-pointer font-display shrink-0"
               >
-                <span>Start scaling for free</span>
+                <span>Get started</span>
                 <ArrowRight className="w-4 h-4 text-neutral-950" />
               </a>
 
               {/* ROAS & Sales metrics beside the button */}
               <div className="flex items-center gap-6 text-xs text-neutral-400 font-display select-none">
                 <div className="flex flex-col text-left">
-                  <span className="font-bold text-white text-base sm:text-lg leading-none">₱800M+</span>
+                  <span className="font-bold text-white text-base sm:text-lg leading-none">800M+</span>
                   <span className="text-[10px] text-neutral-500 uppercase tracking-wider mt-1 font-semibold">Generated Sales</span>
                 </div>
                 <div className="w-px h-8 bg-neutral-800" />
                 <div className="flex flex-col text-left">
                   <span className="font-bold text-white text-base sm:text-lg leading-none">180x</span>
-                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider mt-1 font-semibold">Average ROAS</span>
+                  <span className="text-[10px] text-neutral-500 uppercase tracking-wider mt-1 font-semibold">Highest ROAS</span>
                 </div>
               </div>
             </motion.div>
@@ -462,11 +458,11 @@ export default function Home() {
                   className="flex flex-col items-start space-y-4 border-l-2 border-neutral-800 pl-6"
                 >
                   <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter text-white leading-none">
-                    ₱17M
+                    17M
                   </div>
                   <div className="space-y-1 text-left">
                     <h4 className="text-lg font-bold text-white tracking-tight font-display">
-                      ₱17 Million PHP Ad Spent
+                      17 Million Ad Spent
                     </h4>
                     <p className="text-sm text-neutral-300 leading-relaxed max-w-xs font-display">
                       Strategically deployed across meta channels and search networks to drive user acquisition.
@@ -483,11 +479,11 @@ export default function Home() {
                   className="flex flex-col items-start space-y-4 border-l-2 border-neutral-800 pl-6"
                 >
                   <div className="text-6xl sm:text-7xl md:text-8xl font-display font-black tracking-tighter bg-gradient-to-r from-white to-[#8B5CF6] bg-clip-text text-transparent leading-none">
-                    ₱800M
+                    800M
                   </div>
                   <div className="space-y-1 text-left">
                     <h4 className="text-lg font-bold text-white tracking-tight font-display">
-                      ₱800 Million PHP Generated
+                      800 Million Generated
                     </h4>
                     <p className="text-sm text-neutral-300 leading-relaxed max-w-xs font-display">
                       E-commerce scaling, lead generation, and custom conversion funnels designed for velocity.
@@ -508,7 +504,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-1 text-left">
                     <h4 className="text-lg font-bold text-white tracking-tight font-display">
-                      180x Average ROAS
+                      180x Highest ROAS
                     </h4>
                     <p className="text-sm text-neutral-300 leading-relaxed max-w-xs font-display">
                       Maximizing efficiency on spent capital through hyper-clean layout parameters.
